@@ -101,10 +101,7 @@ const Footer = () => {
                 </p>
               </div>
               <div className="px-4 md:w-1/4 md:ml-auto mt-6 sm:mt-4 md:mt-0">
-                <button
-                  className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded   text-white"
-                  style={{ backgroundColor: "#894578", borderRadius: "5px" }}
-                >
+                <button className="px-4 py-2 bg-full-bleed-bg-color  text-white">
                   Get Details
                 </button>
               </div>

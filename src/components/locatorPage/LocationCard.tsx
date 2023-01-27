@@ -20,7 +20,7 @@ const metersToMiles = (meters: number) => {
 const LocationCard: CardComponent<Location> = ({ result }) => {
   const { address, hours, mainPhone, timezone } = result.rawData;
   const formattedPhone = formatPhoneNumber(mainPhone);
-  console.log("first===>", result);
+  // console.log("first===>", result.rawData);
 
   const [timeStatus, setTimeStatus] = useState("");
   const onOpenHide = () => {
@@ -40,6 +40,7 @@ const LocationCard: CardComponent<Location> = ({ result }) => {
           {metersToMiles(result.distance ?? 0)} miles
         </p>
       </h3>
+      
 
       {/* <p className="text-sm text-slate-700">{address.line1}</p>
       <p className="text-sm text-slate-700">{address.city}, {address.region}, {address.postalCode} </p> */}
@@ -48,6 +49,12 @@ const LocationCard: CardComponent<Location> = ({ result }) => {
         latitude={result?.rawData?.yextDisplayCoordinate?.latitude}
         longitude={result?.rawData?.yextDisplayCoordinate?.longitude}
       />
+      <a href={result.rawData.slug}><button
+          className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+          style={{ backgroundColor: "#894578", borderRadius: "5px" }}
+        >
+          {"view more "}
+        </button></a> 
     </div>
   );
 };

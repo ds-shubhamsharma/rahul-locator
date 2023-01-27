@@ -6,10 +6,10 @@ type Address = {
 };
 
 const IframeMap = (props: Address) => {
-  const { address } = props; console.log(address);
+  const { address } = props; 
   return (
     <>	
-    <iframe className="h-[600px] w-full md:h-[500px] xl:h-full"
+    <iframe style={{height:"500px"}} className="h-[600px] w-full md:h-[700px] xl:h-full"
       src={`https://www.google.com/maps/embed/v1/place?q=${address.line1}&language=${AnswerExperienceConfig.locale}&key=${googleMapsConfig.googleMapsApiKey}`}>
     </iframe>      
     </>

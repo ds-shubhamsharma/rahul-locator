@@ -13,6 +13,7 @@ import UserMarker from "..//../images/map-center.png";
 import Hours from "..//../components/commons/hours";
 import { renderToString } from "react-dom/server";
 import { MarkerClusterer } from "@googlemaps/markerclusterer";
+import GetDirection from "../commons/GetDirection";
 
 /**
  * CSS class interface for the {@link GoogleMaps} component
@@ -306,8 +307,19 @@ function UnwrappedGoogleMaps({
     const MarkerContent = (
       <div className="markerContent w-48 md:w-[350px] font-universpro font-normal text-darkgrey text-xs md:text-sm leading-6">
         <div className="nameData font-bold text-sm md:text-base">
-          <h1>{result.name}</h1>
+          <h1>
+            {result.name}{" "}
+            <span className="miles" style={{ marginLeft: "150px" }}>
+              {metersToMiles(result.distance ?? 0)} miles
+            </span>
+          </h1>
           {result.rawData.address.line1}
+          {result.rawData.address.city}
+          {result.rawData.address.region},{result.rawData.address.postalCode}
+          <GetDirection
+            latitude={result.rawData.yextDisplayCoordinate.latitude}
+            longitude={result.rawData.yextDisplayCoordinate.longitude}
+          />
         </div>
       </div>
     );

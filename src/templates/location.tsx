@@ -18,6 +18,7 @@ import Header from "../components/self/header";
 import Hours from "../components/self/hours";
 import StaticMap from "../components/locationDetails/StaticMap";
 import "../index.css";
+import IframeMap from "../components/locationDetails/IframeMap";
 
 export const config: TemplateConfig = {
   stream: {
@@ -31,6 +32,7 @@ export const config: TemplateConfig = {
       "address",
       "mainPhone",
       "description",
+      "photoGallery",
       "hours",
       "slug",
       "yextDisplayCoordinate",
@@ -95,45 +97,40 @@ const Location: Template<TemplateRenderProps> = ({
     mainPhone,
     yextDisplayCoordinate,
     description,
+    photoGallery
   } = document;
 
+
+  const images = photoGallery.map((img: any) => {
+    return <img src={img.image.url} />;
+  });
   return (
     <>
       <Header />
-      <Banner/>
-      {/* <Slider/> */}
-      <div className="centered-container">
+      <Banner />
+
+      <div
+        className="centered-container"
+        style={{ backgroundColor: "#c0ebf1" }}
+      >
         <div className="section">
           <div className="grid grid-cols-2 gap-x-10 gap-y-10">
             <div>
-              <Card
-                name={
-                  <Details name={name} address={address} phone={mainPhone} />
-                }
-                item={""}
-              />
+              <Details name={name} address={address} phone={mainPhone} />
             </div>
-            {hours && (
-              <Card name={<Hours title={name} hours={hours} />} item="" />
-            )}
-
+            <div> {hours && <Hours title={name} hours={hours} />}</div>
             <Card
               name={<p className="text-xl font-semibold">{`About ${name}`}</p>}
               item={description}
             />
-
             <div>
-              {yextDisplayCoordinate && (
-                <StaticMap
-                  latitude={yextDisplayCoordinate?.latitude}
-                  longitude={yextDisplayCoordinate?.longitude}
-                />
-              )}
+              <IframeMap address={address} />
             </div>
+            <div>{images}</div>
+
           </div>
         </div>
       </div>
-      
       <Footer />
     </>
   );

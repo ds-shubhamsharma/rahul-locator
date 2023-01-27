@@ -1,5 +1,5 @@
 import * as React from "react";
-
+import image from "../../assets/image/logos.png";
 type Link = {
   label: string;
   url: string;
@@ -43,6 +43,7 @@ const Header = () => {
              style={{width:"100px",height:"80px" ,borderRadius:"10px", marginLeft:"10px"}}
               
             ></img>
+
             <div className="flex gap-x-4 text-sm font-semibold text-body" style={{color:"white",fontSize:"17px"}}>
               {linkDoms}
             </div>
