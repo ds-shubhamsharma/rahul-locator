@@ -247,10 +247,10 @@ const optionClickHandler = () =>{
                       entityType: "location",
                       fieldApiName: "address.postalCode",
                     },
-                    {
-                      entityType: "location",
-                      fieldApiName: "builtin.location",                        
-                    },
+                    // {
+                    //   entityType: "location",
+                    //   fieldApiName: "builtin.location",                        
+                    // },
                   ]}
                   
                 />

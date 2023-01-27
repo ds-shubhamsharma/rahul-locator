@@ -3,6 +3,7 @@ import "..//../assets/css/footerCss.css";
 const Footer = () => {
   return (
     <>
+    <div className="container-fluid">
       <footer className="footer">
         <div className="container">
           <div className="row">
@@ -108,6 +109,7 @@ const Footer = () => {
           </div>
         </div>
       </footer>
+      </div>
     </>
   );
 };
