@@ -22,7 +22,7 @@
 
 /* Base */
 html {
-  @apply text-text-color text-base;
+  @apply  text-text-color text-base;
 }
 body,
 button,
@@ -105,12 +105,12 @@ body {
 }
 
 .result.active {
-  @apply bg-[#a8dab5];
+  @apply  bg-[#a8dab5];
 }
 
 /* Search */
 .search-block {
-  @apply sticky top-0 lg:pr-2.5 z-10;
+  @apply  sticky top-0 lg:pr-2.5 z-10;
 }
 .search-block .title {
   @apply text-lg font-title-text-font;
