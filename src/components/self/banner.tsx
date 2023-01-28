@@ -13,7 +13,6 @@ const Example = () => {
     <Slide>
       <div className="each-slide-effect">
         <div style={{ backgroundImage: `url(${images[0]})` }}> </div>
-     
       </div>
       <div className="each-slide-effect">
         <div style={{ backgroundImage: `url(${images[1]})` }}></div>

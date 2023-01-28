@@ -24,15 +24,15 @@ module.exports = {
       'header-cta-bg-color': '#f7edd9',
       'header-text-color': '#f7edd9',
       'header-cta-text-color': '#373a36',
-      'footer-bg-color': '#373a36',
+      'footer-bg-color': '#101010',
       'footer-text-color': '#f7edd9',
       'nav-button-text-color': '#f7edd9',
       'nav-button-bg-color': '#373a36',
       'title-text-color': '#215732',
       'coloured-text-color': '#215732',
       'button-border-color': '#894578',
-      'primary-btn-bg-color': '#524685',
-      'primary-btn-bg-hover-color': '#f7edd9',
+      'primary-btn-bg-color': '#894578',
+      'primary-btn-bg-hover-color': '#8eb0bd',
       'primary-btn-text-color': '#f7edd9',
       'primary-btn-text-hover-color': '#215732',
       'boxed-primary-btn-text-color': '#215732',
@@ -41,7 +41,7 @@ module.exports = {
       'dividing-line-color': '#215732',
       'dietary-requirements-bg-color': '#89a84f',
       'additional-toppings-border-color': '#215732',
-      'link-text-color': '#89a84f'
+      'link-text-color': '#fff'
     },
     fontFamily: {
       'main-text-font': ['"Campton", Georgia, Arial, sans-serif'],

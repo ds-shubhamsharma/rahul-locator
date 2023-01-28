@@ -4,6 +4,9 @@ import { CardComponent } from "@yext/search-ui-react";
 import { Location } from "..//../types/search/locations";
 import Hours from "..//../components/commons/hours";
 import Address from "..//../components/commons/Address";
+import { defaultTimeZone } from "../../config/globalConfig";
+import { svgIcons } from "../../svg icon/svgIcon";
+
 import {
   formatPhoneNumber,
   formatPhoneNumberIntl,
@@ -11,6 +14,8 @@ import {
 import OpenCloseStatus from "..//../components/commons/OpenCloseStatus";
 // import { GetDirection } from "../commons/GetDirection";
 import GetDirection from "..//../components/commons/GetDirection";
+import { Link } from "@yext/pages/components";
+import Phone from "../commons/phone";
 
 const metersToMiles = (meters: number) => {
   const miles = meters * 0.000621371;
@@ -32,6 +37,7 @@ const LocationCard: CardComponent<Location> = ({ result }) => {
   };
 
   return (
+    // <div style={styles.scrollview}>
     <div className={`location result`} id={`result-${result.index}`}>
       <h3 className="">
         {" "}
@@ -40,23 +46,36 @@ const LocationCard: CardComponent<Location> = ({ result }) => {
           {metersToMiles(result.distance ?? 0)} miles
         </p>
       </h3>
-      
-
-      {/* <p className="text-sm text-slate-700">{address.line1}</p>
-      <p className="text-sm text-slate-700">{address.city}, {address.region}, {address.postalCode} </p> */}
       <Address address={address} />
+      <Phone phone={result?.rawData?.mainPhone} />
       <GetDirection
         latitude={result?.rawData?.yextDisplayCoordinate?.latitude}
         longitude={result?.rawData?.yextDisplayCoordinate?.longitude}
       />
-      <a href={result.rawData.slug}><button
-          className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
-          style={{ backgroundColor: "#894578", borderRadius: "5px" }}
-        >
-          {"view more "}
-        </button></a> 
+      <Link
+        className="button before-icon ml-2"
+        style={{ backgroundColor: "#894578" }}
+        href={result.rawData.slug}
+      >
+        {svgIcons.viewdetails} {"view more"}
+      </Link>
+      <div className="icon-row openStatus">
+        <span className="icon">{svgIcons.openclosestatus}</span>
+        <OpenCloseStatus
+          timezone={timezone ? timezone : defaultTimeZone}
+          hours={hours}
+        />
+      </div>
     </div>
   );
 };
 
 export default LocationCard;
+const styles = {
+  scrollview: {
+    height: "580px",
+    width: "450px",
+    border: "0px solid black",
+    overflow: "auto",
+  },
+};

@@ -101,7 +101,10 @@ const Footer = () => {
                 </p>
               </div>
               <div className="px-4 md:w-1/4 md:ml-auto mt-6 sm:mt-4 md:mt-0">
-                <button className="px-4 py-2 bg-full-bleed-bg-color  text-white">
+                <button
+                  style={{ backgroundColor: "#894578" }}
+                  className="button before-icon ml-2"
+                >
                   Get Details
                 </button>
               </div>

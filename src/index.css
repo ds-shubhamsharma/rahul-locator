@@ -180,7 +180,7 @@ body {
 }
 
 .OpenCloseStatus {
-  @apply mb-2.5  pl-7;
+  @apply mb-2.5  pl-9;
 }
 
 .active.daylist {
@@ -262,7 +262,7 @@ nav[aria-label="Pagination"] button:disabled {
 }
 
 /* Footer */
-.footer {
+ .footer {
   @apply bg-footer-bg-color text-footer-text-color py-12;
 }
 
@@ -288,4 +288,4 @@ nav[aria-label="Pagination"] button:disabled {
 
 .footer_links .column ul li {
   @apply leading-5 text-base inline-block w-full;
-}
+} 

@@ -1,6 +1,6 @@
 export const limit = 3; 
 
-export const radius = 50;
+export const radius = 20;
 
 export const defaultQuery = "";
 
@@ -11,6 +11,12 @@ export const liveAPIKey = "e7e9f09435112aea8b0906d738db4d15";
 export const savedFilterId = "";
 
 export const entityTypes = "location";
+
+
+
+export const defaultTimeZone = "Asia/Kolkata";
+export const AnalyticsEnableDebugging = true;
+export const AnalyticsEnableTrackingCookie = true;
 
 export const googleMapsConfig =  {
     centerLatitude:	26.922070,

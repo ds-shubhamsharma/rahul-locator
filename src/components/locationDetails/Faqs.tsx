@@ -3,7 +3,8 @@ import Markdown from 'markdown-to-jsx';
 
 const Faqs = (props:any) => {
     const { faqs } = props;
-    const faqDivs = faqs.map((faq:any) => (
+    console.log('props', props)
+    const faqDivs = faqs?.map((faq:any) => (
       <div className="bg-gray-200 p-4 rounded-lg drop-shadow-md space-y-5">
         <h3 className="text-lg font-semibold">{faq.question}</h3>
         <p><Markdown>{faq.answer}</Markdown></p>

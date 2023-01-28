@@ -1,4 +1,5 @@
 import * as React from "react";
+import { svgIcons } from "../../svg icon/svgIcon";
 
 type Cta = {
   buttonText: string;
@@ -55,11 +56,11 @@ const GetDirection = (props: GetDirection) => {
         className=" py-4 px-6 text-base font-bold text-white rounded-lg drop-shadow-md primary-cta"
         rel="noopener noreferrer"
       >
-        <button  onClick={GetDirectionUrl}
-          className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
-          style={{ backgroundColor: "#894578", borderRadius: "5px" }}
+        <button 
+          className="direction button before-icon"
+          style={{ backgroundColor: "#894578" }}
         >
-          {"GetDirection"}
+         <>{svgIcons.GetDirection} Directions </>
         </button>
       </a>
 

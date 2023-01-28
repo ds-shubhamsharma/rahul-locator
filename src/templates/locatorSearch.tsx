@@ -1,11 +1,21 @@
 import * as React from "react";
 import "../index.css";
-import { GetPath, Template, TemplateProps, TemplateRenderProps, TemplateConfig, GetHeadConfig,
-  HeadConfig } from "@yext/pages";
-import { SearchHeadlessProvider, useSearchActions } from "@yext/search-headless-react";
+import {
+  GetPath,
+  Template,
+  TemplateProps,
+  TemplateRenderProps,
+  TemplateConfig,
+  GetHeadConfig,
+  HeadConfig,
+} from "@yext/pages";
+import {
+  SearchHeadlessProvider,
+  useSearchActions,
+} from "@yext/search-headless-react";
 import PageLayout from "../components/layouts/PageLayout";
 import SearchLayout from "../components/locatorPage/SearchLayout";
-import {  AnswerExperienceConfig  } from "../config/globalConfig";
+import { AnswerExperienceConfig } from "../config/globalConfig";
 import Header from "../components/self/header";
 import Footer from "../components/self/footer";
 import Example from "../components/self/banner";
@@ -14,8 +24,11 @@ export const getPath: GetPath<TemplateProps> = () => {
   return `index.html`;
 };
 
-
-export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({relativePrefixToRoot, path, document}): HeadConfig => {
+export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
+  relativePrefixToRoot,
+  path,
+  document,
+}): HeadConfig => {
   return {
     title: document.name,
     charset: "UTF-8",
@@ -31,30 +44,33 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({relativePrefi
   };
 };
 
-const locatorSearch: Template<TemplateRenderProps> = ({relativePrefixToRoot, path, document}) => {
+const locatorSearch: Template<TemplateRenderProps> = ({
+  relativePrefixToRoot,
+  path,
+  document,
+}) => {
+  const { _site } = document;
 
-const { _site } = document;
+  const providerOptions: google.maps.MapOptions = {
+    disableDefaultUI: true,
+  };
 
-const providerOptions: google.maps.MapOptions = {
-  disableDefaultUI: true
-}
-
-return (
+  return (
     <>
-  <Header/>
-  <Example/>
-        <SearchHeadlessProvider
-            experienceKey={AnswerExperienceConfig.experienceKey}
-            locale={AnswerExperienceConfig.locale}
-            apiKey={AnswerExperienceConfig.apiKey}               
-            verticalKey={AnswerExperienceConfig.verticalKey}
-            experienceVersion={AnswerExperienceConfig.experienceVersion}
-            sessionTrackingEnabled={AnswerExperienceConfig.sessionTrackingEnabled}  
-            endpoints={AnswerExperienceConfig.endpoints}         
-        >
-           <SearchLayout/>           
-        </SearchHeadlessProvider>   
-        <Footer/>
+      <Header />
+      <Example />
+      <SearchHeadlessProvider
+        experienceKey={AnswerExperienceConfig.experienceKey}
+        locale={AnswerExperienceConfig.locale}
+        apiKey={AnswerExperienceConfig.apiKey}
+        verticalKey={AnswerExperienceConfig.verticalKey}
+        experienceVersion={AnswerExperienceConfig.experienceVersion}
+        sessionTrackingEnabled={AnswerExperienceConfig.sessionTrackingEnabled}
+        endpoints={AnswerExperienceConfig.endpoints}
+      >
+        <SearchLayout />
+      </SearchHeadlessProvider>
+      <Footer />
     </>
   );
 };

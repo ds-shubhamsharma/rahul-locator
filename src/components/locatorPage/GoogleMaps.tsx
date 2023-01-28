@@ -14,6 +14,13 @@ import Hours from "..//../components/commons/hours";
 import { renderToString } from "react-dom/server";
 import { MarkerClusterer } from "@googlemaps/markerclusterer";
 import GetDirection from "../commons/GetDirection";
+import { Link } from "@yext/pages/components";
+import { svgIcons } from "../../svg icon/svgIcon";
+import OpenCloseStatus from "../commons/OpenCloseStatus";
+import { defaultTimeZone } from "../../config/globalConfig";
+import Phone from "../commons/phone";
+import Address from "../commons/Address";
+import getDirectionUrl from "../commons/GetDirection";
 
 /**
  * CSS class interface for the {@link GoogleMaps} component
@@ -291,7 +298,6 @@ function UnwrappedGoogleMaps({
     const miles = meters * 0.000621371;
     return miles.toFixed(2);
   };
-
   infoWindow.addListener("closeclick", () => {
     infoWindow.close();
     removeActiveGrid();
@@ -305,23 +311,80 @@ function UnwrappedGoogleMaps({
 
   function Infowindow(i: Number, result: any): void {
     const MarkerContent = (
-      <div className="markerContent w-48 md:w-[350px] font-universpro font-normal text-darkgrey text-xs md:text-sm leading-6">
-        <div className="nameData font-bold text-sm md:text-base">
-          <h1>
-            {result.name}{" "}
-            <span className="miles" style={{ marginLeft: "150px" }}>
-              {metersToMiles(result.distance ?? 0)} miles
-            </span>
-          </h1>
-          {result.rawData.address.line1}
-          {result.rawData.address.city}
-          {result.rawData.address.region},{result.rawData.address.postalCode}
-          <GetDirection
-            latitude={result.rawData.yextDisplayCoordinate.latitude}
-            longitude={result.rawData.yextDisplayCoordinate.longitude}
-          />
+      <>
+        <div className="markerContent w-30 md:w-[350px] font-universpro font-normal text-darkgrey text-xs md:text-sm leading-6">
+          <div className="markerContent">
+            <h3 className="nameData font-bold text-sm md:text-base">
+              <a href={result?.rawData?.slug}>{result.name} </a>
+              <span className="miles" style={{ marginLeft: "244px" }}>
+                {metersToMiles(result?.distance ?? 0)} miles
+              </span>
+            </h3>
+
+            <Link
+              data-ya-track="getdirections"
+              eventName={`getdirections`}
+              className="addressmob"
+              href="javascript:void(0);"
+              id="some-button"
+              rel="noopener noreferrer"
+            >
+              <Address address={result?.rawData?.address} />
+            </Link>
+            <Phone phone={result?.rawData?.mainPhone} />
+            <div>{hours(result?.rawData?.hours)} </div>
+
+            {result?.rawData?.hours ? (
+              <>
+                {Object.keys(result?.rawData?.hours).length > 1 ? (
+                  <>
+                    <div className="icon-row openStatus">
+                      <span className="icon">{svgIcons.openclosestatus}</span>
+                      <OpenCloseStatus
+                        hours={result?.rawData?.hours}
+                        timezone={
+                          result?.rawData?.timezone
+                            ? result?.rawData?.timezone
+                            : defaultTimeZone
+                        }
+                      />
+                    </div>
+                  </>
+                ) : (
+                  <></>
+                )}
+              </>
+            ) : (
+              <></>
+            )}
+            <div className="map-buttons text-center">
+              <GetDirection
+                latitude={result?.rawData?.cityCoordinate?.latitude}
+                longitude={result?.rawData?.cityCoordinate?.longitude}
+              />
+              {/* <Link 
+                style={{ backgroundColor: "#894578" }}
+                data-ya-track="getdirections"
+                eventName={`getdirections`}
+                className="direction button before-icon"
+                onClick={() => getDirectionUrl(result?.rawData)}
+                href="javascript:void(0);"
+                id="some-button1"
+                rel="noopener noreferrer"
+              >
+                <>{svgIcons.GetDirection} Directions </>
+              </Link> */}
+              <Link
+                style={{ backgroundColor: "#894578" }}
+                className="button before-icon ml-2"
+                href={result.rawData.slug}
+              >
+                {svgIcons.viewdetails} {"view more"}
+              </Link>
+            </div>
+          </div>
         </div>
-      </div>
+      </>
     );
     let string = renderToString(MarkerContent);
     infoWindow.setContent(string);
@@ -347,6 +410,7 @@ function UnwrappedGoogleMaps({
 // TEMPORARY FIX
 /* eslint-disable @typescript-eslint/no-explicit-any */
 function getPosition(result: Result) {
+  // console.log('result', result)
   const lat = (result.rawData as any).yextDisplayCoordinate.latitude;
   const lng = (result.rawData as any).yextDisplayCoordinate.longitude;
   return { lat, lng };

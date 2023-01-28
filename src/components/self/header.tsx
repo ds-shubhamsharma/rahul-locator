@@ -13,15 +13,15 @@ const links: Link[] = [
   {
     label: "About",
     url: "#",
-  },    
+  },
   {
     label: "Faq",
     url: "#",
-  }, 
+  },
   {
     label: "location",
     url: "#",
-  }, 
+  },
 ];
 
 const Header = () => {
@@ -34,17 +34,24 @@ const Header = () => {
   ));
 
   return (
-    <div className="" style={{backgroundColor:"#101010"}}>
+    <div className="" style={{ backgroundColor: "#101010" }}>
       <div className="centered-container">
         <nav className="py-6 flex items-center justify-between">
           <div className="flex gap-x-4 items-center">
             <img
               src="https://images.unsplash.com/photo-1620194544222-8c956ca15f1d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80"
-             style={{width:"100px",height:"80px" ,borderRadius:"10px", marginLeft:"10px"}}
-              
+              style={{
+                width: "100px",
+                height: "80px",
+                borderRadius: "10px",
+                marginLeft: "10px",
+              }}
             ></img>
 
-            <div className="flex gap-x-4 text-sm font-semibold text-body" style={{color:"white",fontSize:"17px"}}>
+            <div
+              className="flex gap-x-4 text-sm font-semibold text-body"
+              style={{ color: "white", fontSize: "17px" }}
+            >
               {linkDoms}
             </div>
           </div>
@@ -56,7 +63,6 @@ const Header = () => {
                 url="#"
                 style="text-white bg-orange shadow-xl"
               ></Cta> */}
-              
             </div>
           </div>
         </nav>

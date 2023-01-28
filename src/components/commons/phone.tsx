@@ -1,5 +1,5 @@
 import * as React from "react";
-import { svgIcons } from "../../svg icons/svgIcon";
+import { svgIcons } from "../../svg icon/svgIcon";
 import { formatPhoneNumber } from "react-phone-number-input";
 const Phone = (props: any) => {
   const { phone } = props;
