@@ -16,64 +16,52 @@ const Footer = (props: any) => {
           <div className="container">
             <div className="row">
               <div className="footer-col">
-                <h4>company</h4>
+          
                 {footerServices?.map((service: any) => {
                   return (
                     <>
+                        <h4>{service.label}</h4>
                       <ul>
-                        <li>
-                          <a href="#">{service.label}</a>
-                        </li>
+                     
                       </ul>
                     </>
                   );
                 })}
               </div>
               <div className="footer-col">
-                <h4>get help</h4>
                 {getHelps?.map((getHelp: any) => {
                   return (
                     <>
-                      <ul>
-                        <li>
-                          <a href="#">{getHelp.label}</a>
-                        </li>
-                      </ul>
+                         <h4>{getHelp.label}</h4>
+          
                     </>
                   );
                 })}
               </div>
               <div className="footer-col">
-                <h4>online shop</h4>
+                
                 {onlineShop?.map((onlineShops: any) => {
                   return (
                     <>
-                      <ul>
-                        <li>
-                          <a href="#">{onlineShops.label}</a>
-                        </li>
-                      </ul>
+                    <h4>{onlineShops.label}</h4>
                     </>
                   );
                 })}
               </div>
               <div className="footer-col">
-                <h4>more stuff</h4>
+              
 
                 {moreStuff?.map((moreStuffs: any) => {
                   return (
                     <>
-                      <ul>
-                        <li>
-                          <a href="#">{moreStuffs.label}</a>
-                        </li>
-                      </ul>
+                      <h4>{moreStuffs.label}</h4>
+                  
                     </>
                   );
                 })}
               </div>
             </div>
-            <div className="sm:flex sm:flex-wrap sm:-mx-4 mt-6 pt-6 sm:mt-12 sm:pt-12 border-t justify-center">
+            {/* <div className="sm:flex sm:flex-wrap sm:-mx-4 mt-6 pt-6 sm:mt-12 sm:pt-12 border-t justify-center">
               <div className="sm:w-full px-4 md:w-1/6">
                 <strong className="hover:text-header-cta-bg-color">Deno</strong>
               </div>
@@ -107,7 +95,7 @@ const Footer = (props: any) => {
                   Get Details
                 </button>
               </div>
-            </div>
+            </div> */}
           </div>
         </footer>
       </div>
