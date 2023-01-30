@@ -333,7 +333,7 @@ function UnwrappedGoogleMaps({
               <Address address={result?.rawData?.address} />
             </Link>
             <Phone phone={result?.rawData?.mainPhone} />
-            <div>{hours(result?.rawData?.hours)} </div>
+            {/* <div>{hours(result?.rawData?.hours)} </div> */}
 
             {result?.rawData?.hours ? (
               <>
