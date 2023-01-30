@@ -16,14 +16,11 @@ const Footer = (props: any) => {
           <div className="container">
             <div className="row">
               <div className="footer-col">
-          
                 {footerServices?.map((service: any) => {
                   return (
                     <>
-                        <h4>{service.label}</h4>
-                      <ul>
-                     
-                      </ul>
+                      <h4>{service.label}</h4>
+                      <ul></ul>
                     </>
                   );
                 })}
@@ -32,30 +29,25 @@ const Footer = (props: any) => {
                 {getHelps?.map((getHelp: any) => {
                   return (
                     <>
-                         <h4>{getHelp.label}</h4>
-          
+                      <h4>{getHelp.label}</h4>
                     </>
                   );
                 })}
               </div>
               <div className="footer-col">
-                
                 {onlineShop?.map((onlineShops: any) => {
                   return (
                     <>
-                    <h4>{onlineShops.label}</h4>
+                      <h4>{onlineShops.label}</h4>
                     </>
                   );
                 })}
               </div>
               <div className="footer-col">
-              
-
                 {moreStuff?.map((moreStuffs: any) => {
                   return (
                     <>
                       <h4>{moreStuffs.label}</h4>
-                  
                     </>
                   );
                 })}
