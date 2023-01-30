@@ -1,6 +1,14 @@
 import * as React from "react";
 import "..//../assets/css/footerCss.css";
-const Footer = () => {
+
+type props = {
+  footerServices: any;
+  getHelps: any;
+  moreStuff: any;
+  onlineShop: any;
+};
+const Footer = (props: any) => {
+  const { footerServices, getHelps, moreStuff, onlineShop } = props;
   return (
     <>
       <div className="container-fluid">
@@ -9,69 +17,60 @@ const Footer = () => {
             <div className="row">
               <div className="footer-col">
                 <h4>company</h4>
-                <ul>
-                  <li>
-                    <a href="#">about us</a>
-                  </li>
-                  <li>
-                    <a href="#">our services</a>
-                  </li>
-                  <li>
-                    <a href="#">privacy policy</a>
-                  </li>
-                  <li>
-                    <a href="#">affiliate program</a>
-                  </li>
-                </ul>
+                {footerServices.map((service: any) => {
+                  return (
+                    <>
+                      <ul>
+                        <li>
+                          <a href="#">{service.label}</a>
+                        </li>
+                      </ul>
+                    </>
+                  );
+                })}
               </div>
               <div className="footer-col">
                 <h4>get help</h4>
-                <ul>
-                  <li>
-                    <a href="#">FAQ</a>
-                  </li>
-                  <li>
-                    <a href="#">shipping</a>
-                  </li>
-                  <li>
-                    <a href="#">returns</a>
-                  </li>
-                  <li>
-                    <a href="#">order status</a>
-                  </li>
-                </ul>
+                {getHelps.map((getHelp: any) => {
+                  return (
+                    <>
+                      <ul>
+                        <li>
+                          <a href="#">{getHelp.label}</a>
+                        </li>
+                      </ul>
+                    </>
+                  );
+                })}
               </div>
               <div className="footer-col">
                 <h4>online shop</h4>
-                <ul>
-                  <li>
-                    <a href="#">watch</a>
-                  </li>
-                  <li>
-                    <a href="#">bag</a>
-                  </li>
-                  <li>
-                    <a href="#">shoes</a>
-                  </li>
-                  <li>
-                    <a href="#">dress</a>
-                  </li>
-                </ul>
+                {onlineShop.map((onlineShops: any) => {
+                  return (
+                    <>
+                      <ul>
+                        <li>
+                          <a href="#">{onlineShops.label}</a>
+                        </li>
+                      </ul>
+                    </>
+                  );
+                })}
               </div>
               <div className="footer-col">
                 <h4>more stuff</h4>
 
-                <ul>
-                  <li>
-                    <a href="#">blog</a>
-                  </li>
-                  <li>
-                    <a href="#">term & condition</a>
-                  </li>
-                  <li>
-                    <a href="#">more</a>
-                  </li>
-                </ul>
+                {moreStuff.map((moreStuffs: any) => {
+                  return (
+                    <>
+                      <ul>
+                        <li>
+                          <a href="#">{moreStuffs.label}</a>
+                        </li>
+                      </ul>
+                    </>
+                  );
+                })}
               </div>
             </div>
             <div className="sm:flex sm:flex-wrap sm:-mx-4 mt-6 pt-6 sm:mt-12 sm:pt-12 border-t justify-center">

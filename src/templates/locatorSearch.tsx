@@ -57,7 +57,7 @@ const locatorSearch: Template<TemplateRenderProps> = ({
 
   return (
     <>
-      <Header />
+      <Header headerLogo={_site.c_headerLogo.headerLogo} headerLinks={_site.c_navigationLink} />
       <Example />
       <SearchHeadlessProvider
         experienceKey={AnswerExperienceConfig.experienceKey}
