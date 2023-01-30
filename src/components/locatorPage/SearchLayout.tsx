@@ -12,7 +12,6 @@ import {
   StandardFacets,
   StandardFacetsProps,
 } from "@yext/search-ui-react";
-
 import { Location } from "..//../types/search/locations";
 import LocationCard from "./LocationCard";
 import { GoogleMaps } from "./GoogleMaps";

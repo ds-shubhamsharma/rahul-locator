@@ -308,8 +308,9 @@ function UnwrappedGoogleMaps({
   const hours = (result: any) => {
     return <Hours hours={result} />;
   };
-
   function Infowindow(i: Number, result: any): void {
+    // console.log('result.rawData', result)
+
     const MarkerContent = (
       <>
         <div className="markerContent w-30 md:w-[350px] font-universpro font-normal text-darkgrey text-xs md:text-sm leading-6">
@@ -358,11 +359,11 @@ function UnwrappedGoogleMaps({
               <></>
             )}
             <div className="map-buttons text-center">
-              <GetDirection
-                latitude={result?.rawData?.cityCoordinate?.latitude}
-                longitude={result?.rawData?.cityCoordinate?.longitude}
-              />
-              {/* <Link 
+              {/* <GetDirection
+                latitude={result?.rawData?.yextDisplayCoordinate?.latitude}
+                longitude={result?.rawData?.yextDisplayCoordinate?.longitude}
+              /> */}
+              <Link
                 style={{ backgroundColor: "#894578" }}
                 data-ya-track="getdirections"
                 eventName={`getdirections`}
@@ -373,7 +374,8 @@ function UnwrappedGoogleMaps({
                 rel="noopener noreferrer"
               >
                 <>{svgIcons.GetDirection} Directions </>
-              </Link> */}
+              </Link>
+
               <Link
                 style={{ backgroundColor: "#894578" }}
                 className="button before-icon ml-2"
