@@ -17,7 +17,7 @@ const Footer = (props: any) => {
             <div className="row">
               <div className="footer-col">
                 <h4>company</h4>
-                {footerServices.map((service: any) => {
+                {footerServices?.map((service: any) => {
                   return (
                     <>
                       <ul>
@@ -31,7 +31,7 @@ const Footer = (props: any) => {
               </div>
               <div className="footer-col">
                 <h4>get help</h4>
-                {getHelps.map((getHelp: any) => {
+                {getHelps?.map((getHelp: any) => {
                   return (
                     <>
                       <ul>
@@ -45,7 +45,7 @@ const Footer = (props: any) => {
               </div>
               <div className="footer-col">
                 <h4>online shop</h4>
-                {onlineShop.map((onlineShops: any) => {
+                {onlineShop?.map((onlineShops: any) => {
                   return (
                     <>
                       <ul>
@@ -60,7 +60,7 @@ const Footer = (props: any) => {
               <div className="footer-col">
                 <h4>more stuff</h4>
 
-                {moreStuff.map((moreStuffs: any) => {
+                {moreStuff?.map((moreStuffs: any) => {
                   return (
                     <>
                       <ul>

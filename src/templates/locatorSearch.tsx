@@ -70,7 +70,8 @@ const locatorSearch: Template<TemplateRenderProps> = ({
       >
         <SearchLayout />
       </SearchHeadlessProvider>
-      <Footer />
+      <Footer footerServices={_site.c_footerServices} getHelps={_site.c_getHelps} moreStuff={_site.c_moreStuff} onlineShop={_site.c_onlineShop}/>
+
     </>
   );
 };

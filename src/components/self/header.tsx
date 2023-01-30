@@ -8,13 +8,6 @@ type props = {
 const Header = (props: any) => {
   const { headerLogo, headerLinks } = props;
 
-  React.useEffect(() => {
-    document.body.setAttribute("id", "body");
-  });
-  const toggle = () => {
-    document.getElementById("body").classList.toggle("menu-opened");
-  };
-
   return (
     <div className="" style={{ backgroundColor: "#101010" }}>
       <div className="centered-container">
@@ -29,18 +22,17 @@ const Header = (props: any) => {
                 marginLeft: "10px",
               }}
             ></img>
- 
- {headerLinks.map((links: any) => {
-    return(
- 
-            <div
-              className="flex gap-x-9 text-sm font-semibold text-body"
-              style={{ color: "white", fontSize: "17px" }}
-             
-            >
-               {links.label}
-        </div>
-         ) })}
+
+            {headerLinks?.map((links: any) => {
+              return (
+                <div
+                  className="flex gap-x-9 text-sm font-semibold text-body"
+                  style={{ color: "white", fontSize: "17px" }}
+                >
+                  {links.label}
+                </div>
+              );
+            })}
           </div>
           <div className="space-x-5"></div>
           <div className="flex gap-x-4">
