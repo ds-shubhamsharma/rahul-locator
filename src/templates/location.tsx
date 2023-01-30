@@ -12,7 +12,6 @@ import { Link } from "@yext/pages/components";
 import * as React from "react";
 import Banner from "../components/self/banner";
 import Card from "../components/self/card";
-import Details from "../components/self/details";
 import Footer from "../components/self/footer";
 import Header from "../components/self/header";
 import Hours from "../components/self/hours";
@@ -63,37 +62,38 @@ export const getRedirects: GetRedirects<TemplateProps> = ({ document }) => {
 export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
   relativePrefixToRoot,
   path,
+  _site,
   document,
-}): HeadConfig => {
-  return {
-    title: document.name,
-    charset: "UTF-8",
-    viewport: "width=device-width, initial-scale=1",
-    tags: [
-      {
-        type: "meta",
-        attributes: {
-          name: "description",
-          content: document.description,
-        },
+}): HeadConfig => ({
+  title: document.name,
+  charset: "UTF-8",
+  viewport: "width=device-width, initial-scale=1",
+  tags: [
+    {
+      type: "meta",
+      attributes: {
+        name: "description",
+        content: document.description,
       },
-      {
-        type: "link",
-        attributes: {
-          rel: "icon",
-          type: "image/x-icon",
-        },
+    },
+    {
+      type: "link",
+      attributes: {
+        rel: "icon",
+        type: "image/x-icon",
       },
-    ],
-  };
-};
+    },
+  ],
+});
 
 const Location: Template<TemplateRenderProps> = ({
   relativePrefixToRoot,
   path,
+
   document,
 }) => {
   const {
+    _site,
     name,
     address,
     hours,
@@ -120,9 +120,11 @@ const Location: Template<TemplateRenderProps> = ({
   //   return <img src={img.image.url} />;
   // });
 
+
   return (
     <>
-      <Header />
+      {/* <Header /> */}
+      <Header headerLogo={_site.c_headerLogo.headerLogo} headerLinks={_site.c_navigationLink} />
       <Banner />
 
       <div className="container-fluid">

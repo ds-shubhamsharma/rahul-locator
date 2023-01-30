@@ -388,6 +388,21 @@ function UnwrappedGoogleMaps({
         </div>
       </>
     );
+
+
+
+    // function mobiledirection() {
+    //   getDirectionUrl(result.rawData);
+    // }
+    // google.maps.event.addListener(infoWindow.current, "domready", (e: any) => {
+    //   const someButton = document.getElementById("some-button");
+    //   someButton?.addEventListener("click", mobiledirection);
+    // });
+
+    // google.maps.event.addListener(infoWindow.current, "domready", (e: any) => {
+    //   const someButton = document.getElementById("some-button1");
+    //   someButton?.addEventListener("click", mobiledirection);
+    // });
     let string = renderToString(MarkerContent);
     infoWindow.setContent(string);
   }

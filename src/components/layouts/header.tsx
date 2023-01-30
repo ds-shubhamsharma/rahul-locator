@@ -1,53 +1,100 @@
 import * as React from "react";
-import Cta from "./cta";
-import logo from "../../images/Prezzo_Logo_RGB_OffWhite.png";
 
-type Link = {
-  label: string;
-  url: string;
+type props = {
+  headerLogo: any;
+  headerLinks: any;
 };
 
-const links: Link[] = [
-  {
-    label: "Home",
-    url: "/",
-  },
-  {
-    label: "Menu",
-    url: "#",
-  },
-  {
-    label: "Delivery & Collection",
-    url: "#",
-  },
-  {
-    label: "A Celebration of Flavour",
-    url: "#",
-  },
-  {
-    label: "E-gifts",
-    url: "#",
-  },
-  {
-    label: "Christmas",
-    url: "#",
-  },
-  {
-    label: "Working with us",
-    url: "#",
-  }
-];
+// const links: Link[] = [
+//   {
+//     label: "Home",
+//     url: "/",
+//   },
+//   {
+//     label: "Menu",
+//     url: "#",
+//   },
+//   {
+//     label: "Delivery & Collection",
+//     url: "#",
+//   },
+//   {
+//     label: "A Celebration of Flavour",
+//     url: "#",
+//   },
+//   {
+//     label: "E-gifts",
+//     url: "#",
+//   },
+//   {
+//     label: "Christmas",
+//     url: "#",
+//   },
+//   {
+//     label: "Working with us",
+//     url: "#",
+//   }
+// ];
 
-const Header = () => {
-  const linkDoms = links.map((link) => (
-      <a className="navbar-item" href={link.url} >
-        <span>{link.label}</span>
-      </a>
-  ));
+const Header = (props: any) => {
+  const { headerLogo, headerLinks } = props;
+
+  React.useEffect(() => {
+    document.body.setAttribute("id", "body");
+  });
+  const toggle = () => {
+    document.getElementById("body").classList.toggle("menu-opened");
+  };
+  // const linkDoms = links.map((link) => (
+  //     <a className="navbar-item" href={link.url} >
+  //       <span>{link.label}</span>
+  //     </a>
+  // ));
 
   return (
     <>
-      <div id="header" className="header-nav">
+      <header className="site-header">
+        <div className="container-lg">
+          <div className="navbar">
+            <div className="mobile-menu-btn lg:hidden">
+              <button type="button" onClick={toggle} name="toggle-button">
+                <span></span>
+                <span></span>
+              </button>
+            </div>
+            <div className="logo">
+              <a href="#" className="">
+                <img
+                  src={headerLogo?.url}
+                  alt=" Logo"
+                  title="Well"
+                />
+              </a>
+            </div>
+            <div className="mid-nav">
+              {headerLinks?.map((e: any) => {
+                return (
+                  <>
+                    <div className="menu-item">
+                      <a href={e.link} className="">
+                        {e.label}
+                      </a>
+                    </div>
+                  </>
+                );
+              })}
+            </div>
+            {/* <div className="header-right-link">
+              <a href={findPharmacy?.link} className="">
+                {svgIcons.searchicon}
+                <span>{findPharmacy?.label}</span>
+              </a>
+            </div> */}
+          </div>
+        </div>
+      </header>
+
+      {/* <div id="header" className="header-nav">
         <div className="container header-content">
           <div className="header-content-left">
             <a className="button" href="#">
@@ -72,7 +119,7 @@ const Header = () => {
             {linkDoms}
           </nav>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };

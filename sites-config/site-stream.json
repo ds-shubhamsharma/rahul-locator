@@ -1,14 +1,18 @@
 {
   "$id": "site-entity",
   "filter": {
-    "entityIds": ["siteGlobalData"] 
+    "entityIds": ["DynamicData"] 
   },
   "source": "knowledgeGraph",
   "fields": [
     "name",
-    "facebookPageUrl",
-    "instagramHandle",
-    "twitterHandle"
+    "c_headerLogo",
+    "c_navigationLink",
+    "c_footerImage",
+    "c_footerServices",
+    "c_getHelps",
+    "c_onlineShop",
+    "c_moreStuff"
   ],
   "localization": {
     "locales": ["en"],
