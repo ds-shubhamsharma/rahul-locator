@@ -22,6 +22,9 @@ import Faqs from "../components/locationDetails/Faqs";
 import Address from "../components/commons/Address";
 import Phone from "../components/commons/phone";
 import Example from "../components/self/banner";
+import PhotoSlider from "../components/locationDetails/PhotoSlider";
+import PhotoGallery from "../components/locationDetails/PhotoGallery";
+import FaqData from "../components/locationDetails/tabs/FaqData";
 
 export const config: TemplateConfig = {
   stream: {
@@ -38,6 +41,7 @@ export const config: TemplateConfig = {
       "photoGallery",
       "hours",
       "slug",
+      "c_imageDetails",
       "yextDisplayCoordinate",
     ],
 
@@ -102,6 +106,7 @@ const Location: Template<TemplateRenderProps> = ({
     yextDisplayCoordinate,
     description,
     photoGallery,
+    c_imageDetails
   } = document;
 
   const [data, setData] = React.useState<any>([]);
@@ -116,17 +121,15 @@ const Location: Template<TemplateRenderProps> = ({
     fetchData();
   }, []);
 
-
-  // const images = photoGallery?.map((img: any) => {
-  //   return <img src={img.image.url} />;
-  // });
-
+// console.log('first', data)
+ 
   return (
     <>
-     
       <Header headerLogo={_site.c_headerLogo.headerLogo} headerLinks={_site.c_navigationLink} />
       <Example imageSlide={_site.c_imageForBanner}/>
 
+
+    
       <div className="container-fluid">
         <div className="section">
           <div className="grid grid-cols-2 gap-x-10 gap-y-10">
@@ -152,11 +155,14 @@ const Location: Template<TemplateRenderProps> = ({
           {/* <div><Faqs faqs={data?.response?.entities}/></div> */}
         </div>
       </div>
+      <PhotoGallery photoGallery ={c_imageDetails}/>
       <NearByLocations
         latitude={yextDisplayCoordinate.latitude}
         longitude={yextDisplayCoordinate.longitude}
       />
       
+{/* <FaqData prop={data?.response?.entities} /> */}
+     
       <Footer footerServices={_site.c_footerServices} getHelps={_site.c_getHelps} moreStuff={_site.c_moreStuff} onlineShop={_site.c_onlineShop}/>
     </>
   );
