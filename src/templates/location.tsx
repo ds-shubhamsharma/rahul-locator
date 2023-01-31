@@ -10,7 +10,7 @@ import {
 } from "@yext/pages";
 import { Link } from "@yext/pages/components";
 import * as React from "react";
-import Banner from "../components/self/banner";
+// import Banner from "../components/self/banner";
 import Card from "../components/self/card";
 import Footer from "../components/self/footer";
 import Header from "../components/self/header";
@@ -21,6 +21,7 @@ import NearByLocations from "../components/locationDetails/NearByLocations";
 import Faqs from "../components/locationDetails/Faqs";
 import Address from "../components/commons/Address";
 import Phone from "../components/commons/phone";
+import Example from "../components/self/banner";
 
 export const config: TemplateConfig = {
   stream: {
@@ -114,18 +115,17 @@ const Location: Template<TemplateRenderProps> = ({
   React.useEffect(() => {
     fetchData();
   }, []);
-  console.log("data", data);
+
 
   // const images = photoGallery?.map((img: any) => {
   //   return <img src={img.image.url} />;
   // });
 
-console.log('_site.c_footerServices', _site?.c_footerServices)
   return (
     <>
-      {/* <Header /> */}
+     
       <Header headerLogo={_site.c_headerLogo.headerLogo} headerLinks={_site.c_navigationLink} />
-      <Banner />
+      <Example imageSlide={_site.c_imageForBanner}/>
 
       <div className="container-fluid">
         <div className="section">

@@ -19,7 +19,10 @@ const Footer = (props: any) => {
                 {footerServices?.map((service: any) => {
                   return (
                     <>
-                      <h4>{service.label}</h4>
+                      <h4>
+                        {" "}
+                        <a href="#">{service.label}</a>{" "}
+                      </h4>
                       <ul></ul>
                     </>
                   );
@@ -29,7 +32,10 @@ const Footer = (props: any) => {
                 {getHelps?.map((getHelp: any) => {
                   return (
                     <>
-                      <h4>{getHelp.label}</h4>
+                      <h4>
+                        {" "}
+                        <a href="#">{getHelp.label}</a>{" "}
+                      </h4>
                     </>
                   );
                 })}
@@ -38,7 +44,10 @@ const Footer = (props: any) => {
                 {onlineShop?.map((onlineShops: any) => {
                   return (
                     <>
-                      <h4>{onlineShops.label}</h4>
+                      <h4>
+                        {" "}
+                        <a href="#">{onlineShops.label}</a>{" "}
+                      </h4>
                     </>
                   );
                 })}
@@ -47,7 +56,10 @@ const Footer = (props: any) => {
                 {moreStuff?.map((moreStuffs: any) => {
                   return (
                     <>
-                      <h4>{moreStuffs.label}</h4>
+                      <h4 className="hover:bg-red">
+                        {" "}
+                        <a href="#"> {moreStuffs.label}</a>
+                      </h4>
                     </>
                   );
                 })}
@@ -60,6 +72,7 @@ const Footer = (props: any) => {
               <div className="px-4 sm:w-1/2 md:w-1/4 mt-4 md:mt-0">
                 <h6 className="font-bold mb-2 hover:text-header-cta-bg-color">
                   Address
+
                 </h6>
                 <address className="not-italic mb-4 text-sm hover:text-header-cta-bg-color">
                   6 KHA.

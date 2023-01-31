@@ -57,8 +57,11 @@ const locatorSearch: Template<TemplateRenderProps> = ({
 
   return (
     <>
-      <Header headerLogo={_site.c_headerLogo.headerLogo} headerLinks={_site.c_navigationLink} />
-      <Example />
+      <Header
+        headerLogo={_site.c_headerLogo.headerLogo}
+        headerLinks={_site.c_navigationLink}
+      />
+      <Example imageSlide={_site.c_imageForBanner} />
       <SearchHeadlessProvider
         experienceKey={AnswerExperienceConfig.experienceKey}
         locale={AnswerExperienceConfig.locale}
@@ -70,8 +73,12 @@ const locatorSearch: Template<TemplateRenderProps> = ({
       >
         <SearchLayout />
       </SearchHeadlessProvider>
-      <Footer footerServices={_site.c_footerServices} getHelps={_site.c_getHelps} moreStuff={_site.c_moreStuff} onlineShop={_site.c_onlineShop}/>
-
+      <Footer
+        footerServices={_site.c_footerServices}
+        getHelps={_site.c_getHelps}
+        moreStuff={_site.c_moreStuff}
+        onlineShop={_site.c_onlineShop}
+      />
     </>
   );
 };

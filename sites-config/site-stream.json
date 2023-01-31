@@ -12,7 +12,8 @@
     "c_footerServices",
     "c_getHelps",
     "c_onlineShop",
-    "c_moreStuff"
+    "c_moreStuff",
+    "c_imageForBanner"
   ],
   "localization": {
     "locales": ["en"],

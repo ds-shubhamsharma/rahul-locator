@@ -29,7 +29,7 @@ const Header = (props: any) => {
                   className="flex gap-x-9 text-sm font-semibold text-body"
                   style={{ color: "white", fontSize: "17px" }}
                 >
-                  {links.label}
+                 <a href="#"> {links.label}</a>
                 </div>
               );
             })}

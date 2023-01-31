@@ -389,8 +389,6 @@ function UnwrappedGoogleMaps({
       </>
     );
 
-
-
     // function mobiledirection() {
     //   getDirectionUrl(result.rawData);
     // }
